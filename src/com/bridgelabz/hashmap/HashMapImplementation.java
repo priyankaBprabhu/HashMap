@@ -25,7 +25,7 @@ public class HashMapImplementation<K,T> implements IHashMap <K ,T> {
     }
 
     public void remove(K key) {
-        int index = key.hashCode() % bucket.length;
+        int index = Math.abs(key.hashCode() % bucket.length);
         bucket[index].pop(key);
         size--;
     }

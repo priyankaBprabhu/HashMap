@@ -14,6 +14,7 @@ public class HashMapMain {
             value += 1;
             hashmap.add(word, value);
         }
+        hashmap.remove("avoidable");
         System.out.println(hashmap);
     }
 }
