@@ -6,7 +6,7 @@ public class HashMapImplementation<K,T> implements IHashMap <K ,T> {
     MapLinkList[] bucket = new MapLinkList[5];
     int size = 0;
     public void add(K key, T value) {
-        int index = key.hashCode() % bucket.length;
+        int index = Math.abs((int)key.hashCode() % bucket.length);
         if(bucket[index] == null){
             bucket[index] = new MapLinkList<K, T>();
         }
@@ -16,7 +16,7 @@ public class HashMapImplementation<K,T> implements IHashMap <K ,T> {
     @Override
     public T get(K key) {
         try {
-            int index = key.hashCode() % bucket.length;
+            int index =Math.abs( (int)key.hashCode() % bucket.length);
             return (T) bucket[index].search(key);
         }catch (NullPointerException e){
             System.out.println("Entered key is not available");
